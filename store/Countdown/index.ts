@@ -1,7 +1,7 @@
 // index é responsavel por gerar toda estrutura de uma store do vuex(state, getters, actions, muttations)
 import { State, Getters, Mutations, MutationsInterface } from './types';
 
-const Minutes = 25;
+const Minutes = 0.05;
 
 export const state = (): State =>({
     time: Minutes * 60,
