@@ -1,41 +1,39 @@
 <template>
   <main>
-    <h1>Quadro de tarefas</h1>
-    <p>Crie uma lista de tarefas</p>
+    <h1>Task Board</h1>
+    <p>Create a list of tasks</p>
 
     <div class="create-new">
       <input 
-        type="text"
-        v-model="newTask"
-        placeholder="Adicione uma nova tarefa"
-        @keypress.enter="addTask"
-      />
-      <button @click="addTask">Adicionar</button>
-
-      <div class="tasks">
-        <Task 
-          v-for="(task, i) in $store.state.tasks"
-          :key="i"
-          :task="task"
-        />
-      </div>
+        type="text" 
+        v-model="newTask" 
+        placeholder="Add a new task" 
+        @keypress.enter="addTask" />
+      <button @click="addTask">Add</button>
     </div>
+
+    <div class="tasks">
+      <Task
+        v-for="(task, i) in $store.state.tasks"
+        :key="i"
+        :task="task" />
+    </div>
+
   </main>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
-  data(){
-    return{
+  data (){
+    return {
       newTask: ''
     }
   },
-  methods:{
-    addTask(){
-      if(this.newTask){
-        this.$store.commit('ADD_TASK', this.newTask)
-        this.newTask = ''
+  methods: {
+    addTask () {
+      if (this.newTask) {
+        this.$store.commit('ADD_TASK', this.newTask);
+        this.newTask = '';
       }
     }
   }
